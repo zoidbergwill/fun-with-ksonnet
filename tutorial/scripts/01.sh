@@ -9,3 +9,5 @@
    --namespace ks-dev \
    --cluster $CURRENT_CLUSTER \
    --user $CURRENT_USER
+
+kubectl config use-context ks-dev
