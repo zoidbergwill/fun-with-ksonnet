@@ -6,6 +6,12 @@ environments:
       server: https://192.168.64.93:8443
     k8sVersion: v1.8.0
     path: dev
+  prod:
+    destination:
+      namespace: ks-prod
+      server: https://192.168.64.2:8443
+    k8sVersion: v1.7.0
+    path: prod
 kind: ksonnet.io/app
 libraries:
   redis:

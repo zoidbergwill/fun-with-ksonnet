@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
- kubectl create namespace ks-dev
+set -o errexit
+set -o nounset
+set -o pipefail
 
- CURRENT_CONTEXT=$(kubectl config current-context)
- CURRENT_CLUSTER=$(kubectl config get-contexts $CURRENT_CONTEXT | tail -1 | awk '{print $3}')
- CURRENT_USER=$(kubectl config get-contexts $CURRENT_CONTEXT | tail -1 | awk '{print $4}')
+kubectl create namespace ks-dev
 
- kubectl config set-context ks-dev \
+CURRENT_CONTEXT=$(kubectl config current-context)
+CURRENT_CLUSTER=$(kubectl config get-contexts $CURRENT_CONTEXT | tail -1 | awk '{print $3}')
+CURRENT_USER=$(kubectl config get-contexts $CURRENT_CONTEXT | tail -1 | awk '{print $4}')
+
+kubectl config set-context ks-dev \
    --namespace ks-dev \
    --cluster $CURRENT_CLUSTER \
    --user $CURRENT_USER
