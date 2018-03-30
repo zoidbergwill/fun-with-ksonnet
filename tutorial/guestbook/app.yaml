@@ -1,4 +1,11 @@
-apiVersion: 0.0.1
+apiVersion: 0.1.0
+environments:
+  dev:
+    destination:
+      namespace: ks-dev
+      server: https://192.168.64.93:8443
+    k8sVersion: v1.8.0
+    path: dev
 kind: ksonnet.io/app
 libraries:
   redis:
